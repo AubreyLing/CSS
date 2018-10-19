@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 	<meta charset="UTF-8">
-	<title>会动的边框：通过transition和伪元素实现动态四边边框效果</title>
+	<title>会动的边框：通过transition和伪类实现动态四边边框效果</title>
 	<style>
 		*{
 			-webkit-box-sizing: border-box;
@@ -55,32 +55,32 @@
 		i:before{
 			content: '';
 			display: block;
-			width: 0; /*伪元素的宽度和高度先设置为0*/
+			width: 0; /*伪类的宽度和高度先设置为0*/
 			height: 0;
 			transition: ease 0.65s; /*变换时间设置为0.65s*/
 			visibility: visible;
 			border-top: 5px solid #17233d; /*设置左上角的边框，显示为一个小方块*/
 			border-left: 5px solid #17233d;
-			position: absolute;/*伪元素的起始位置是左上角*/
+			position: absolute;/*伪类的起始位置是左上角*/
 			left: -5px;
 			top: -5px;
 		}
 		i:after{
 			content: '';
 			display: block;
-			width: 0; /*伪元素的宽度和高度先设置为0*/
+			width: 0; /*伪类的宽度和高度先设置为0*/
 			height: 0;
 			transition: ease 0.65s;/*变换时间设置为0.65s*/
 			visibility: visible;
 			border-right: 5px solid #17233d; /*设置右下角的边框，显示为一个小方块*/
 			border-bottom: 5px solid #17233d;
-			position: absolute; /*伪元素的起始位置是右下角*/
+			position: absolute; /*伪类的起始位置是右下角*/
 			right: -5px;
 			bottom: -5px;
 		}
 		#container:hover i:before,
 		#container:hover i:after{
-			width: 995px; /*鼠标移入#container时，变换伪元素的宽高，实现动态边框。宽高记得减去伪元素的边框的宽度5px*/
+			width: 995px; /*鼠标移入#container时，变换伪类的宽高，实现动态边框。宽高记得减去伪类的边框的宽度5px*/
 			height: 415px;
 		}
 		#container:hover .image img{
