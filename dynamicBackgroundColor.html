@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3: 利用transition和伪元素实现动态背景色</title>
+	<style>
+		/*为了使div垂直水平居中*/
+		html,body{
+			width: 100%;
+			height: 100%;
+		}
+		body{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		/*目标元素需要先定位*/
+		div{
+			width: 140px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			box-shadow: 0 0 10px rgba(12,3,6,.13);
+			position: relative;
+		}
+		/*为目标元素添加伪元素，设置伪元素的宽度为0，高度为100%，绝对定位，变换时间，背景色以及z-index*/
+		div::before{
+			content: '';
+			display: block;
+			width: 0;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			transition: .65s;
+			background-color: #17233d;
+			z-index: -1; /*不设置的话，一会儿文字就看不见了*/
+		}
+		/*div:hover时变换伪元素的宽度为100%*/
+		div:hover::before{
+			width: 100%;
+		}
+		/*div:hover时文本颜色变成白色，为了有对比效果*/
+		div:hover{
+			color: #ffffff;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		More
+	</div>
+</body>
+</html>
